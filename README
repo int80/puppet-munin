@@ -7,6 +7,10 @@ To use this module, follow these directions:
 1. Install the "common" module -- the munin module depends on functions that are
    defined and installed via the common module, see README.common for how to do this
 
+   This module can be found at https://github.com/puppet-modules/puppet-common or
+   https://github.com/daks/puppet-common
+
+
 2. You will need storedconfigs enabled in your puppet setup, to do that you need to
    add a line to your puppet.conf in your [puppetmasterd] section which says:
    
@@ -20,6 +24,7 @@ To use this module, follow these directions:
    dbserver=localhost
    dbuser=puppet
    dbpassword=puppetspasswd
+
 
 3. Install the "munin" module:
 
