@@ -15,7 +15,20 @@ class munin::host
 	concatenated_file { "/etc/munin/munin.conf":
 		dir => $NODESDIR,
 		header => "/etc/munin/munin.conf.header",
+                footer => "/etc/munin/munin.conf.hosts",
 	}
+
+        file { "/etc/munin/munin.conf.hosts":
+            source  => [
+                        "puppet:///files/munin/munin.hosts.$fqdn",
+                        "puppet:///modules/munin/munin.hosts",
+                       ],
+            replace => yes,
+            mode    => 0644,
+            owner   => root,
+            group   => root,
+            before  => File["/etc/munin/munin.conf"];
+        }
 
 	file {
 		"/etc/munin/munin.conf.header":
