@@ -85,11 +85,11 @@ To use this module, follow these directions:
 
       $munin_port = 4948
 
-4.  If you need any manual configuration, you can customise /etc/munin/munin.conf.header
+4.  If you need any manual configuration, you can customize /etc/munin/munin.conf.header
     on the munin::host.
 
     If you want to define extra nodes (not configured with Puppet), you can create a file named
-    munin.hosts.$fqdn (with $fqdn the FQDN of the munin::host) and put it on your Puppet fileserver
+    munin.hosts.$fqdn (with $fqdn being the FQDN of the munin::host) and put it on your Puppet fileserver
     which serves the [files] share.
     The alternative is to modify the munin/files/munin.hosts file in the module.
     
