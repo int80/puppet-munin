@@ -1,0 +1,3 @@
+[submodule "files/pymunin"]
+	path = files/pymunin
+	url = https://github.com/aouyar/PyMunin.git

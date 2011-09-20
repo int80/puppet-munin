@@ -1,8 +1,0 @@
-
-# Example of custom host definition
-
-#[myhost.my.domain.tld]
-#    address myhost.my.domain.tld
-#    port 4949
-#    use_node_name yes
-
