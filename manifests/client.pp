@@ -26,10 +26,10 @@ class munin::client {
       content => template("munin/memcached-conf.erb");
 
     # pymunin
-    "/usr/local/lib/python2.6/site-packages/pysysinfo":
+    "/etc/munin/plugins/pysysinfo":
       source => "puppet:///modules/munin/pymunin/pysysinfo",
       recurse => true;
-    "/usr/local/lib/python2.6/site-packages/pymunin":
+    "/etc/munin/plugins/pymunin":
       source => "puppet:///modules/munin/pymunin/plugins/pymunin",
       recurse => true;
 
@@ -40,6 +40,17 @@ class munin::client {
       source => "puppet:///modules/munin/pymunin/plugins/diskiostats.py";
     "/etc/munin/plugins/sysstats":
       source => "puppet:///modules/munin/pymunin/plugins/sysstats.py";
+
+    # delete lame graphs
+    [ "/etc/munin/plugins/df_inode", "/etc/munin/plugins/entropy",
+      "/etc/munin/plugins/diskstats", "/etc/munin/plugins/iostat_ios",
+      "/etc/munin/plugins/iostat", "/etc/munin/plugins/irqstats",
+      "/etc/munin/plugins/open_inodes", "/etc/munin/plugins/interrupts",
+      "/etc/munin/plugins/forks", "/etc/munin/plugins/load",
+      "/etc/munin/plugins/proc_pri", "/etc/munin/plugins/vmstat",
+      "/etc/munin/plugins/memory", "/etc/munin/plugins/open_files"]:
+        notify => Service['munin-node'],
+        ensure => absent;
   }
 }
                                   

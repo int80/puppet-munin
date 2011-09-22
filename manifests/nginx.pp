@@ -1,6 +1,8 @@
 # enable ngnix site
 
 class munin::nginx {
+  include webserver
+  
   nginx::site {
     "munin":
       domain => $fqdn,
