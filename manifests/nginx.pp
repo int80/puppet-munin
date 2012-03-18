@@ -5,7 +5,7 @@ class munin::nginx {
   
   nginx::site {
     "munin":
-      domain => $fqdn,
+      domain => "munin.$::domain",
       root => '/var/cache/munin/www';
   }
 }
